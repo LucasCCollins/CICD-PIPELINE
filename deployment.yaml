@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucasapp
+  namespace: la-space
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-node-app
+  template:
+    metadata:
+      labels:
+        app: my-node-app
+    spec:
+      containers:
+        - name: lucasapp
+          image: lucasapp 
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
